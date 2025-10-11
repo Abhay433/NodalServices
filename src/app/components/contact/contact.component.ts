@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { CommonModule } from '@angular/common';
+import { Toast } from 'bootstrap';
 
 @Component({
   selector: 'app-contact',
@@ -36,12 +37,26 @@ export class ContactComponent {
 
     emailjs.send(this.serviceID, this.templateID, templateParams, this.publicKey)
       .then(() => {
-        alert('Message sent successfully!');
+        this.showToast('Message sent successfully!', 'bg-success');
         form.resetForm();
       })
       .catch((error) => {
         console.error('Email send error:', error);
-        alert('Oops! Something went wrong, please try again.');
+        this.showToast('Oops! Something went wrong, please try again.', 'bg-danger');
       });
+  }
+
+
+  showToast(message: string, bgClass: string) {
+    const toastEl = document.getElementById('emailToast')!;
+    const toastMessageEl = document.getElementById('toastMessage')!;
+    toastMessageEl.textContent = message;
+
+    // Remove previous bg-* classes
+    toastEl.className = 'toast align-items-center text-white border-0';
+    toastEl.classList.add(bgClass);
+
+    const toast = new Toast(toastEl, { delay: 3000 });
+    toast.show();
   }
 }

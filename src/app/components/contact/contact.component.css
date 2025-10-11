@@ -91,5 +91,10 @@
       width: 100%;
     }
   }
+  /* contact.component.css */
+.toast {
+    min-width: 250px;
+  }
+  
   
   
