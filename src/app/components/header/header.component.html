@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-light" routerLink="/">Nodal Services</a>
+  
+        <!-- Toggler -->
+<button 
+class="navbar-toggler" 
+type="button" 
+data-bs-toggle="collapse" 
+data-bs-target="#navbarNav"
+aria-controls="navbarNav"
+aria-expanded="false"
+aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link px-3" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" routerLink="/services" routerLinkActive="active" (click)="closeNavbar()">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" routerLink="/contact" routerLinkActive="active" (click)="closeNavbar()">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+

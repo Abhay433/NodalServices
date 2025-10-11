@@ -3,4 +3,7 @@ footer a:hover {
     color: #00d4ff !important;
     transition: color 0.3s ease-in-out;
   }
-  
+
+  body {
+    transition: margin-top 0.3s ease; /* Smooth transition when margin changes */
+  }
