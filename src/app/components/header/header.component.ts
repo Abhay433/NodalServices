@@ -12,81 +12,66 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent {
   lastScrollTop = 0;
   navbar: HTMLElement | null = null;
-  body: HTMLElement | null = null;
+  openDropdown: string | null = null;
+  openSubDropdown: string | null = null;
+
+  // Mobile specific
+  isMobileMenuOpen = false;
+  openMobileSubMenu: string | null = null;
+  openNestedSubMenu: string | null = null;
 
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
     this.navbar = this.el.nativeElement.querySelector('nav');
-    this.body = document.body;
-  
-    const collapseEl = this.el.nativeElement.querySelector('#navbarNav');
-  
-    collapseEl?.addEventListener('show.bs.collapse', () => {
-      this.animateBodyMargin(collapseEl.scrollHeight);
-    });
-    collapseEl?.addEventListener('hide.bs.collapse', () => {
-      this.animateBodyMargin(0);
-    });
   }
-  
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const st = window.pageYOffset || document.documentElement.scrollTop;
-    if (this.navbar) {
-      if (st > this.lastScrollTop && st > 100) {
-        // Scroll down
-        this.navbar.style.top = '-80px';
-      } else {
-        // Scroll up
-        this.navbar.style.top = '0';
-      }
+onWindowScroll() {
+  const st = window.scrollY || document.documentElement.scrollTop; // ✅ Updated line
+  if (this.navbar && window.innerWidth >= 992) {
+    if (st > this.lastScrollTop && st > 100) {
+      this.navbar.style.top = '-180px';
+    } else {
+      this.navbar.style.top = '0';
     }
-    this.lastScrollTop = st <= 0 ? 0 : st;
   }
+  this.lastScrollTop = st <= 0 ? 0 : st;
+}
 
-  // toggleNavbar() {
-  //   const collapseEl = this.el.nativeElement.querySelector('#navbarNav');
-  //   if (collapseEl) {
-  //     collapseEl.classList.toggle('show'); // Toggle Bootstrap collapse manually
-  //   }
-  // }
 
-  closeNavbar() {
-    const collapseEl = this.el.nativeElement.querySelector('#navbarNav');
-    if (collapseEl?.classList.contains('show')) {
-      collapseEl.classList.remove('show');
-      this.adjustBodyMargin(0); 
+  // Desktop dropdown
+  showDropdown(name: string) { this.openDropdown = name; }
+  hideDropdown(name: string) {
+    if (this.openDropdown === name) {
+      this.openDropdown = null;
+      this.openSubDropdown = null;
     }
   }
 
-  adjustBodyMargin(margin: number) {
-    if (this.body) {
-      this.body.style.marginTop = `${80 + margin}px`; // 80px is navbar height
-    }
+  showSubDropdown(name: string) { this.openSubDropdown = name; }
+  hideSubDropdown(name: string) {
+    if (this.openSubDropdown === name) this.openSubDropdown = null;
   }
 
 
-  animateBodyMargin(targetMargin: number) {
-    if (!this.body) return;
-  
-    const current = parseFloat(getComputedStyle(this.body).marginTop);
-    const difference = targetMargin + 80 - current; // 80 = navbar height
-    const duration = 300; // milliseconds
-    const startTime = performance.now();
-  
-    const step = (time: number) => {
-      const progress = Math.min((time - startTime) / duration, 1);
-      this.body!.style.marginTop = `${current + difference * progress}px`;
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    };
-  
-    requestAnimationFrame(step);
+  // Mobile sidebar controls
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
-  
 
-  
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+    this.openMobileSubMenu = null;
+    this.openNestedSubMenu = null;
+  }
+
+  toggleNestedSubMenu(menu: string) {
+    this.openNestedSubMenu = this.openNestedSubMenu === menu ? null : menu;
+  }
+
+  toggleSubMenu(menu: string) {
+    this.openMobileSubMenu = this.openMobileSubMenu === menu ? null : menu;
+  }
+
 }

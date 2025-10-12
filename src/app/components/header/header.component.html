@@ -1,33 +1,230 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-light" routerLink="/">Nodal Services</a>
+  <div class="container">
+    <a class="navbar-brand fw-bold text-light" routerLink="/">Nodal Services</a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="menu-toggle-btn d-lg-none" (click)="toggleMobileMenu()">
+      <span *ngIf="!isMobileMenuOpen">+</span>
+      <span class = "red" *ngIf="isMobileMenuOpen">×</span>
+    </button>
+
+
+
+    <!-- Desktop Menu -->
+    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link px-3" routerLink="/" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          </li>
+
+             <!-- About Us -->
+        <li class="nav-item dropdown" (mouseenter)="showDropdown('about')" (mouseleave)="hideDropdown('about')">
+          <a class="nav-link px-3 dropdown-toggle" href="#" (click)="$event.preventDefault()">About Us</a>
+          <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'about'">
+            <li><a routerLink="/leadership">Leadership</a></li>
+            <li><a routerLink="/policies">Policies</a></li>
+            <li><a routerLink="/our-serve">What We Serve</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdowns same as before -->
+        <li class="nav-item dropdown" (mouseenter)="showDropdown('services')" (mouseleave)="hideDropdown('services')">
+          <a class="nav-link px-3 dropdown-toggle" href="#">Services</a>
+          <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'services'">
+            <li><a class="dropdown-item" routerLink="/maintenance">Third Party Impl</a></li>
+            <li><a class="dropdown-item" routerLink="/maintenance">Maintenance</a></li>
+            <li class="dropdown-item" (mouseenter)="showSubDropdown('qa')" (mouseleave)="hideSubDropdown('qa')">
+              <span>QA Testing ▸</span>
+              <ul class="dropdown-submenu" [class.show]="openSubDropdown === 'qa'">
+                <li><a routerLink="/manual-testing">Manual Testing</a></li>
+                <li><a routerLink="/automation-testing">Automation Testing</a></li>
+                <li><a routerLink="/api-testing">API Testing</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-item" (mouseenter)="showSubDropdown('software')" (mouseleave)="hideSubDropdown('software')">
+              <span>Software Development ▸</span>
+              <ul class="dropdown-submenu" [class.show]="openSubDropdown === 'software'">
+                <li><a routerLink="/java">Java</a></li>
+                <li><a routerLink="/php">PHP</a></li>
+                <li><a routerLink="/python">Python</a></li>
+                <li><a routerLink="/dotnet">.NET</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+
+            <!-- Technology -->
+            <li class="nav-item dropdown" (mouseenter)="showDropdown('technology')"
+            (mouseleave)="hideDropdown('technology')">
+            <a class="nav-link px-3 dropdown-toggle" href="#" (click)="$event.preventDefault()">Technology</a>
+            <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'technology'">
+              <li><a routerLink="/leadership">Clouds</a></li>
+              <li><a routerLink="/policies">AI-Ml</a></li>
+              <li><a routerLink="/our-serve">Data Science</a></li>
+              <li><a routerLink="/our-serve">Blockchain</a></li>
+              <li><a routerLink="/our-serve">DevOps</a></li>
+            </ul>
   
-        <!-- Toggler -->
-<button 
-class="navbar-toggler" 
-type="button" 
-data-bs-toggle="collapse" 
-data-bs-target="#navbarNav"
-aria-controls="navbarNav"
-aria-expanded="false"
-aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-  
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link px-3" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" routerLink="/services" routerLinkActive="active" (click)="closeNavbar()">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" routerLink="/contact" routerLinkActive="active" (click)="closeNavbar()">Contact</a>
-          </li>
-        </ul>
-      </div>
+        
+
+      
+
+        <!-- Industries -->
+        <li class="nav-item dropdown" (mouseenter)="showDropdown('industries')"
+          (mouseleave)="hideDropdown('industries')">
+          <a class="nav-link px-3 dropdown-toggle" href="#" (click)="$event.preventDefault()">Industries</a>
+          <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'industries'">
+            <li><a routerLink="/education">Education</a></li>
+            <li><a routerLink="/fintech">Fintech</a></li>
+            <li><a routerLink="/ecommerce">E-Commerce</a></li>
+            <li><a routerLink="/healthcare">Healthcare</a></li>
+          </ul>
+        </li>
+
+     
+
+        <!-- Portfolio -->
+
+        <li class="nav-item dropdown" (mouseenter)="showDropdown('portfolio')"
+          (mouseleave)="hideDropdown('portfolio')">
+          <a class="nav-link px-3 dropdown-toggle" href="#" (click)="$event.preventDefault()">Portfolio</a>
+          <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'portfolio'">
+            <li><a routerLink="/leadership">Achivements</a></li>
+            <li><a routerLink="/policies">People</a></li>
+          </ul>
+
+        </li>
+
+    
+
+        <!-- Testimonials -->
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/testimonials">Testimonials</a></li>
+
+        <!-- Contact -->
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/contact">Contact</a></li>
+
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<!-- Mobile Sidebar -->
+<div class="mobile-sidebar" [class.open]="isMobileMenuOpen">
+  <ul class="mobile-menu">
+    <li><a routerLink="/" (click)="closeMobileMenu()">Home</a></li>
+
+
+       <!-- About us -->
+      <li>
+        <div class="mobile-parent" (click)="toggleSubMenu('aboutus')">
+          About Us
+          <span class="arrow" [class.rotate]="openMobileSubMenu === 'aboutus'">▼</span>
+        </div>
+        <ul class="mobile-submenu" [class.show]="openMobileSubMenu === 'aboutus'">
+          <li><a routerLink="/leadership" (click)="closeMobileMenu()" >Leadership</a></li>
+          <li><a routerLink="/policies" (click)="closeMobileMenu()" >Policies</a></li>
+          <li ><a routerLink="/our-serve" (click)="closeMobileMenu()" >What We Serve</a></li>
+        </ul>
+
+       </li>
+
+    <!-- SERVICES -->
+    <li>
+      <div class="mobile-parent" (click)="toggleSubMenu('services')">
+        Services
+        <span class="arrow" [class.rotate]="openMobileSubMenu === 'services'">▼</span>
+      </div>
+      <ul class="mobile-submenu" [class.show]="openMobileSubMenu === 'services'">
+        <li><a routerLink="/maintenance" (click)="closeMobileMenu()">Third Party Impl</a></li>
+        <li><a routerLink="/maintenance" (click)="closeMobileMenu()">Maintenance</a></li>
+
+        <li>
+          <div class="mobile-sub-parent" (click)="toggleNestedSubMenu('qa')">
+            QA Testing <span class="arrow" [class.rotate]="openNestedSubMenu === 'qa'">▼</span>
+          </div>
+          <ul class="mobile-nested-submenu" [class.show]="openNestedSubMenu === 'qa'">
+            <li><a routerLink="/manual-testing" (click)="closeMobileMenu()">Manual</a></li>
+            <li><a routerLink="/automation-testing" (click)="closeMobileMenu()">Automation</a></li>
+            <li><a routerLink="/api-testing" (click)="closeMobileMenu()">API</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="mobile-sub-parent" (click)="toggleNestedSubMenu('software')">
+            Software Development <span class="arrow" [class.rotate]="openNestedSubMenu === 'software'">▼</span>
+          </div>
+          <ul class="mobile-nested-submenu" [class.show]="openNestedSubMenu === 'software'">
+            <li><a routerLink="/java" (click)="closeMobileMenu()">Java</a></li>
+            <li><a routerLink="/php" (click)="closeMobileMenu()">PHP</a></li>
+            <li><a routerLink="/python" (click)="closeMobileMenu()">Python</a></li>
+            <li><a routerLink="/dotnet" (click)="closeMobileMenu()">.NET</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+
+
+    <li>
+      <div class="mobile-parent" (click)="toggleSubMenu('technology')">
+        Technology
+        <span class="arrow" [class.rotate]="openMobileSubMenu === 'technology'">▼</span>
+      </div>
+      <ul class="mobile-submenu" [class.show]="openMobileSubMenu === 'technology'">
+        <li><a routerLink="/clouds" (click)="closeMobileMenu()" >Clouds</a></li>
+        <li><a routerLink="/aiml" (click)="closeMobileMenu()" >AI-ML</a></li>
+        <li><a routerLink="/our-serve" (click)="closeMobileMenu()">Data Science</a></li>
+            <li><a routerLink="/our-serve" (click)="closeMobileMenu()">Blockchain</a></li>
+            <li><a routerLink="/our-serve" (click)="closeMobileMenu()">DevOps</a></li>
+      </ul>
+     </li>
+
+
+
+        <!-- Industries -->
+         <li>
+          <div class="mobile-parent" (click)="toggleSubMenu('industries')">
+            Industries
+            <span class="arrow" [class.rotate]="openMobileSubMenu === 'industries'">▼</span>
+          </div>
+          <ul class="mobile-submenu" [class.show]="openMobileSubMenu === 'industries'">
+            <li><a routerLink="/education" (click)="closeMobileMenu()">Education</a></li>
+            <li><a routerLink="/fintech" (click)="closeMobileMenu()">Fintech</a></li>
+            <li><a routerLink="/ecommerce" (click)="closeMobileMenu()">E-Commerce</a></li>
+            <li><a routerLink="/healthcare" (click)="closeMobileMenu()">Healthcare</a></li>
+          </ul>
+         </li>
+
+       
+
+
+         
+
+           <!-- Portfolio -->
+
+           <li>
+            <div class="mobile-parent" (click)="toggleSubMenu('portfolio')">
+                portfolio
+              <span class="arrow" [class.rotate]="openMobileSubMenu === 'portfolio'">▼</span>
+            </div>
+            <ul class="mobile-submenu" [class.show]="openMobileSubMenu === 'portfolio'">
+              <li><a routerLink="/leadership" (click)="closeMobileMenu()"  >Achivements</a></li>
+              <li><a routerLink="/policies" (click)="closeMobileMenu()" >People</a></li>
+            </ul>
+
+           </li>
+
+
+       
+    <li><a routerLink="/contact" (click)="closeMobileMenu()">Contact</a></li>
+  </ul>
   
+</div>
+<div class="overlay" *ngIf="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
 
