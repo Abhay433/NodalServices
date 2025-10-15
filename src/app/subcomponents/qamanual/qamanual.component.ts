@@ -7,8 +7,8 @@ import 'aos/dist/aos.css';
   selector: 'app-manual',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './Qamanual.component.html',
-  styleUrls: ['./Qamanual.component.css']
+  templateUrl: './qamanual.component.html',
+  styleUrls: ['./qamanual.component.css']
 })
 export class QamanualComponent implements OnInit {
   features = [
