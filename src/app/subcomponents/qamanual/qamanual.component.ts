@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
   templateUrl: './Qamanual.component.html',
   styleUrls: ['./Qamanual.component.css']
 })
-export class QamnualComponent implements OnInit {
+export class QamanualComponent implements OnInit {
   features = [
     { icon: '📝', title: 'Thorough Testing', desc: 'Ensure every feature works as intended through detailed manual testing.' },
     { icon: '🔍', title: 'Bug Detection', desc: 'Identify hidden bugs and usability issues that automation may miss.' },

@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'uiux', loadComponent: () => import('./subcomponents/uiux/uiux.component').then(c => c.UiuxComponent) },
   { path: 'apitesting', loadComponent: () => import('./subcomponents/qaapitesting/qaapitesting.component').then(c => c.QaapitestingComponent) },
   { path: 'automation', loadComponent: () => import('./subcomponents/qaautomation/qaautomation.component').then(c => c.QautomationComponent) },
-  { path: 'manual', loadComponent: () => import('./subcomponents/qamanual/qamanual.component').then(c => c.QamnualComponent) },
+  { path: 'manual', loadComponent: () => import('./subcomponents/qamanual/qamanual.component').then(c => c.QamanualComponent) },
   { path: 'maintanance', loadComponent: () => import('./helpercomponents/smaintanance/smaintanance.component').then(c => c.SmaintananceComponent) },
   { path: 'thirdparty', loadComponent: () => import('./helpercomponents/sthirdparty/sthirdparty.component').then(c => c.SthirdpartyComponent) },
 
