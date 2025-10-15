@@ -1,0 +1,66 @@
+<div class="dotnet-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 data-aos="fade-up">.NET Development</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          Building secure, scalable, and high-performance .NET applications for enterprise solutions.
+        </p>
+      </div>
+    </section>
+  
+    <!-- About Section -->
+    <section class="about" data-aos="fade-right">
+      <div class="container d-flex flex-column flex-lg-row align-items-center">
+        <div class="text">
+          <h2>Our .NET Expertise</h2>
+          <p>
+            We deliver enterprise-grade solutions using the .NET framework, covering web apps, backend services,
+            and cloud-integrated systems tailored to your business needs.
+          </p>
+        </div>
+        <div class="image">
+          <img src="assets/softwaredev/dotnet1.jpg" alt=".NET Development" />
+        </div>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Why Choose Us</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let f of features" data-aos="zoom-in">
+            <div class="feature-card">
+              <div class="icon">{{ f.icon }}</div>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Process Section -->
+    <section class="process" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Our Development Process</h2>
+        <p>We follow agile methodology to deliver .NET applications efficiently and reliably.</p>
+        <div class="steps">
+          <div class="step" *ngFor="let step of processSteps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i*150">
+            {{ step }}
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Start Your .NET Project</h2>
+      <p>Partner with us to build secure, scalable, and enterprise-ready .NET applications.</p>
+      <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+    </section>
+  
+  </div>
+  

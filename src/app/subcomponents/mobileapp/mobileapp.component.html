@@ -1,0 +1,65 @@
+<div class="mobileapp-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 data-aos="fade-up"> Mobile App Development</h1>
+        <p data-aos="fade-up">
+          Transforming ideas into sleek, high-performing mobile applications for every platform.
+        </p>
+      </div>
+    </section>
+  
+    <!-- About Section -->
+    <section class="about">
+      <div class="container d-flex flex-column flex-lg-row align-items-center">
+        <div class="text">
+          <h2 data-aos="fade-up"> Our Approach</h2>
+          <p data-aos="fade-up">
+            From concept to deployment, we focus on user-centric design, modern technologies,
+            and scalable architectures for top-tier mobile apps.
+          </p>
+        </div>
+        <div class="image">
+          <img src="assets/softwaredev/mobileapp.png" alt="Mobile App" />
+        </div>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Why Choose Us</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let f of features" data-aos="fade-up">
+            <div class="feature-card">
+              <div class="icon">{{ f.icon }}</div>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Process Section -->
+    <section class="process">
+      <div class="container text-center">
+        <h2 data-aos="fade-up">Our Process</h2>
+        <p data-aos="fade-up"> We follow an agile workflow to build efficiently and deliver quality faster.</p>
+        <div class="steps">
+          <div class="step" data-aos="fade-up">🔍 Research</div>
+          <div class="step" data-aos="fade-up">🎨 Design</div>
+          <div class="step" data-aos="fade-up">💻 Develop</div>
+          <div class="step" data-aos="fade-up">🚀 Launch</div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA -->
+    <section class="cta text-center">
+      <h2>Let’s Build Your Mobile App</h2>
+      <p>Partner with us to create a powerful and user-friendly mobile experience.</p>
+      <button routerLink="/contact">Get in Touch</button>
+    </section>
+  </div>
+  

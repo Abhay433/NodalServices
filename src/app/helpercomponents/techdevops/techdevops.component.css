@@ -1,0 +1,68 @@
+.devops-page .hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #20c997 0%, #198754 100%);
+    color: #fff;
+  }
+  
+  .features {
+    padding: 60px 0;
+    background: #f9f9f9;
+  }
+  
+  .feature-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-icon {
+    font-size: 50px;
+    color: #20c997;
+    margin-bottom: 20px;
+  }
+  
+  .process {
+    padding: 60px 0;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .step {
+    background: #20c997;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    flex: 1 1 200px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .step:hover {
+    transform: translateY(-5px);
+    background: #198754;
+  }
+  
+  .cta {
+    padding: 60px 20px;
+    background: #f1f5f9;
+  }
+  
+  .cta .btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  

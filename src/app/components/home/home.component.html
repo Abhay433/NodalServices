@@ -1,27 +1,57 @@
-<!-- 🟦 START: HERO SECTION -->
-<div class="container mt-5">
-  <div class="row align-items-center">
+<div class="home-page">
 
-    <!-- 🟩 Left Side: Text + Button -->
-    <div class="col-lg-6 col-md-12 text-center text-lg-start">
-      <h1 class="display-4 fw-bold mb-3">Welcome to Nodal Services</h1>
-      <p class="lead mb-4">
-        <strong>NodalXPoint</strong> delivers next-generation <strong>IT solutions</strong> that help your business 
-        stand out in a competitive digital world. We specialize in <strong>Web & Mobile App Development</strong>, 
-        <strong>Artificial Intelligence & Machine Learning</strong>, and <strong>Cybersecurity</strong> — 
-        ensuring innovation, reliability, and measurable results for every client.
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content text-center">
+      <h1 data-aos="fade-up">Welcome to Our Tech Solutions</h1>
+      <p data-aos="fade-up" data-aos-delay="150">
+        Transforming ideas into high-performing applications, robust systems, and digital solutions.
       </p>
-      <button class="btn btn-primary btn-lg" routerLink="/services">
-        Explore Services
-      </button>
+      <button routerLink="/contact" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="300">Explore Services</button>
     </div>
-
-    <!-- 🟩 Right Side: Figma Image -->
-    <div class="col-lg-6 col-md-12 text-center mt-4 mt-lg-0">
-      <img src="assets/figmaHome.png" alt="Nodal Services Hero" class="img-fluid rounded shadow-lg hero-img">
+    <div class="hero-image">
+      <img src="assets/figmaHome.png" alt="Tech Solutions" />
     </div>
+  </section>
 
-  </div>
+  <!-- Highlights Section -->
+  <section class="highlights" data-aos="fade-up">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Expertise</h2>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let h of highlights" data-aos="zoom-in">
+          <div class="highlight-card">
+            <div class="icon">{{ h.icon }}</div>
+            <h3>{{ h.title }}</h3>
+            <p>{{ h.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about" data-aos="fade-right">
+    <div class="container d-flex flex-column flex-lg-row align-items-center">
+      <div class="text">
+        <h2>About Us</h2>
+        <p>
+          We are a team of passionate developers and designers committed to delivering cutting-edge digital solutions.
+          Our focus is on quality, innovation, and client satisfaction.
+        </p>
+        <button routerLink="/contact" class="btn btn-secondary mt-3">Contact Us</button>
+      </div>
+      <div class="image">
+        <img src="assets/figma1.png" alt="About Us" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta text-center" data-aos="zoom-in">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Partner with us and bring your digital vision to life.</p>
+    <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+  </section>
+
 </div>
-<!-- 🟦 END: HERO SECTION -->
-

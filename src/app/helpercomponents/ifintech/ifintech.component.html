@@ -1,0 +1,64 @@
+<div class="fintech-page">
+
+    <!-- Hero Section -->
+    <section class="hero text-center" data-aos="fade-up">
+      <div class="container">
+        <h1>Fintech Solutions</h1>
+        <p>Empowering financial services with secure, innovative, and technology-driven solutions.</p>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Our Fintech Solutions</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let f of features" data-aos="zoom-in">
+            <div class="feature-card">
+              <i [class]="f.icon + ' feature-icon'"></i>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Process Section -->
+    <section class="process text-center" data-aos="fade-up">
+      <div class="container">
+        <h2>Our Process</h2>
+        <p>Step-by-step methodology to deliver effective Fintech solutions.</p>
+        <div class="steps">
+          <div class="step" *ngFor="let step of processSteps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i*150">
+            {{ step }}
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Innovation / Trends Section -->
+    <section class="trends" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Innovation & Trends</h2>
+        <div class="row">
+          <div class="col-md-6" *ngFor="let t of trends" data-aos="zoom-in">
+            <div class="trend-card">
+              <i [class]="t.icon + ' trend-icon'"></i>
+              <h3>{{ t.title }}</h3>
+              <p>{{ t.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Transform Your Financial Services</h2>
+      <p>Partner with us to implement cutting-edge Fintech solutions for your business.</p>
+      <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+    </section>
+  
+  </div>
+  

@@ -1,0 +1,38 @@
+<div class="leadership-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content text-center">
+        <h1 data-aos="fade-up">Our Leadership</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          Meet the team guiding our company with experience, vision, and passion.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Leadership Profiles -->
+    <section class="profiles" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Leadership Team</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let leader of leaders" data-aos="zoom-in">
+            <div class="profile-card">
+              <img [src]="leader.image" [alt]="leader.name" />
+              <h3>{{ leader.name }}</h3>
+              <p class="position">{{ leader.position }}</p>
+              <p>{{ leader.bio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Join Our Team</h2>
+      <p>Be part of a company led by industry experts and innovators.</p>
+      <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+    </section>
+  
+  </div>
+  

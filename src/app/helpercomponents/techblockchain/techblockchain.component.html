@@ -1,0 +1,50 @@
+<div class="blockchain-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 data-aos="fade-up">Blockchain Solutions</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          Leverage blockchain technology to create secure, transparent, and decentralized solutions.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Why Choose Blockchain</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let f of features" data-aos="zoom-in">
+            <div class="feature-card">
+              <i [class]="f.icon + ' feature-icon'"></i>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Process Section -->
+    <section class="process" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Our Blockchain Process</h2>
+        <p>Structured methodology to implement secure and efficient blockchain solutions.</p>
+        <div class="steps">
+          <div class="step" *ngFor="let step of processSteps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i*150">
+            {{ step }}
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Start Your Blockchain Journey</h2>
+      <p>Partner with us to build secure, decentralized, and transparent solutions.</p>
+      <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+    </section>
+  
+  </div>
+  

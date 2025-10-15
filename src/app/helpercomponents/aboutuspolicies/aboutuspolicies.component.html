@@ -1,0 +1,53 @@
+<div class="policies-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 data-aos="fade-up">Our Policies</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          We believe in transparency, ethics, and strong data protection practices to earn your trust.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Policy Cards Section -->
+    <section class="policies-section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Our Core Principles</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let policy of policies" data-aos="zoom-in">
+            <div class="policy-card">
+              <i [class]="policy.icon + ' policy-icon'"></i>
+              <h3>{{ policy.title }}</h3>
+              <p>{{ policy.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Compliance Section -->
+    <section class="compliance text-center" data-aos="fade-up">
+      <div class="container">
+        <h2>Compliance & Ethics</h2>
+        <p>
+          We comply with industry regulations and international standards.  
+          Every project aligns with our ethical code and sustainable business practices.
+        </p>
+        <div class="icons">
+          <i class="bi bi-file-earmark-check"></i>
+          <i class="bi bi-shield-shaded"></i>
+          <i class="bi bi-people-fill"></i>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>We Build Trust Through Transparency</h2>
+      <p>Reach out to learn more about our policies and commitment to excellence.</p>
+      <button routerLink="/contact" class="btn btn-primary">Contact Us</button>
+    </section>
+  
+  </div>
+  

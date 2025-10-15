@@ -1,0 +1,92 @@
+.policies-page {
+    font-family: "Poppins", sans-serif;
+    color: #222;
+    overflow-x: hidden;
+  }
+  
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #673ab7, #9575cd);
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .hero p {
+    max-width: 650px;
+    margin: 1rem auto 0;
+    font-size: 1.2rem;
+  }
+  
+  /* Policy Cards */
+  .policies-section {
+    background: #f4f8fb;
+    padding: 5rem 2rem;
+  }
+  .policy-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 2rem;
+  }
+  .policy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  .policy-icon {
+    font-size: 3rem;
+    color: #673ab7;
+    margin-bottom: 1rem;
+  }
+  
+  /* Compliance Section */
+  .compliance {
+    padding: 5rem 2rem;
+    background: white;
+  }
+  .compliance h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .compliance .icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 2.5rem;
+    color: #673ab7;
+    margin-top: 1.5rem;
+  }
+  
+  /* CTA Section */
+  .cta {
+    background: linear-gradient(to right, #9575cd, #673ab7);
+    color: white;
+    padding: 4rem 2rem;
+  }
+  .cta button {
+    background: white;
+    color: #673ab7;
+    font-weight: 600;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+  }
+  .cta button:hover {
+    background: #ede7f6;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .policies-section .row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
