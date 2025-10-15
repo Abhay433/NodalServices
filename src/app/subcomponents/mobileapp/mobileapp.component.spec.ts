@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PythonComponent } from './python.component';
+import { MobileappComponent } from './mobileapp.component';
 
-describe('PythonComponent', () => {
-  let component: PythonComponent;
-  let fixture: ComponentFixture<PythonComponent>;
+describe('MobileappComponent', () => {
+  let component: MobileappComponent;
+  let fixture: ComponentFixture<MobileappComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PythonComponent]
+      imports: [MobileappComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PythonComponent);
+    fixture = TestBed.createComponent(MobileappComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

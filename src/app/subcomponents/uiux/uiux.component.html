@@ -1,1 +1,66 @@
-<p>uiux works!</p>
+<div class="uiux-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 data-aos="fade-up">UI/UX Design</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          Designing visually stunning and highly usable interfaces that delight users.
+        </p>
+      </div>
+    </section>
+  
+    <!-- About Section -->
+    <section class="about" data-aos="fade-right">
+      <div class="container d-flex flex-column flex-lg-row align-items-center">
+        <div class="text">
+          <h2>Our UI/UX Approach</h2>
+          <p>
+            We focus on creating interfaces that are both beautiful and intuitive. From research to prototyping,
+            we ensure your users enjoy every interaction with your product.
+          </p>
+        </div>
+        <div class="image">
+          <img src="assets/softwaredev/uiux1.jpg" alt="UI/UX Design" />
+        </div>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Why Choose Our UI/UX</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let f of features" data-aos="zoom-in">
+            <div class="feature-card">
+              <div class="icon">{{ f.icon }}</div>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Process Section -->
+    <section class="process" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Our Design Process</h2>
+        <p>We follow a structured UI/UX design workflow to create engaging and usable interfaces.</p>
+        <div class="steps">
+          <div class="step" *ngFor="let step of processSteps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i*150">
+            {{ step }}
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Enhance Your User Experience</h2>
+      <p>Partner with us to craft UI/UX designs that captivate and retain your users.</p>
+      <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+    </section>
+  
+  </div>
+  

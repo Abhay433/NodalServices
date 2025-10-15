@@ -1,0 +1,100 @@
+.aiml-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f9fbff, #e8f0ff);
+    color: #333;
+  }
+  
+  .hero-icon {
+    font-size: 70px;
+    color: #0d6efd;
+  }
+  
+  .service-card {
+    border: none;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+  
+  .service-icon {
+    font-size: 45px;
+    color: #0d6efd;
+  }
+  
+  .get-in-touch {
+    background: linear-gradient(135deg, #dca3a3, #f0f6ff);
+    padding: 50px 30px;
+    margin-top: 70px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .get-in-touch:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+  
+  .btn-primary {
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+  }
+
+  .features {
+    padding: 60px 0;
+    background: #f9f9f9;
+  }
+  
+  .feature-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    text-align: center;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-icon {
+    font-size: 50px;
+    color: #0d6efd;
+    margin-bottom: 20px;
+  }
+  
+  .process {
+    padding: 60px 0;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .step {
+    background: #0d6efd;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    flex: 1 1 200px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .step:hover {
+    transform: translateY(-5px);
+    background: #0b5ed7;
+  }
+  
+  

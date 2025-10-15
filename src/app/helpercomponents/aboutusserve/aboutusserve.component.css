@@ -1,0 +1,90 @@
+.what-we-serve-page {
+    font-family: "Poppins", sans-serif;
+    color: #222;
+    overflow-x: hidden;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .hero p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Services Section */
+  .services {
+    background: #f4f8fb;
+    padding: 5rem 2rem;
+  }
+  .service-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 2rem;
+  }
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  .service-icon {
+    font-size: 3rem;
+    color: #0072ff;
+    margin-bottom: 1rem;
+  }
+  
+  /* Values Section */
+  .values {
+    padding: 5rem 2rem;
+    background: white;
+  }
+  .values h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .value-items h4 {
+    color: #0072ff;
+    font-weight: 600;
+  }
+  .value-items p {
+    margin-top: 0.5rem;
+  }
+  
+  /* CTA Section */
+  .cta {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    padding: 4rem 2rem;
+  }
+  .cta button {
+    background: white;
+    color: #0072ff;
+    font-weight: 600;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+  }
+  .cta button:hover {
+    background: #e8f0ff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .services .row, .value-items {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

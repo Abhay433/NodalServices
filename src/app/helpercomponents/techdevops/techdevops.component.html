@@ -1,1 +1,50 @@
-<p>techdevops works!</p>
+<div class="devops-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 data-aos="fade-up">DevOps Solutions</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          Streamline development and operations with automation, CI/CD, and cloud efficiency.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Why Choose DevOps</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let f of features" data-aos="zoom-in">
+            <div class="feature-card">
+              <i [class]="f.icon + ' feature-icon'"></i>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Process Section -->
+    <section class="process" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Our DevOps Process</h2>
+        <p>Structured approach to automate, deploy, and monitor applications efficiently.</p>
+        <div class="steps">
+          <div class="step" *ngFor="let step of processSteps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i*150">
+            {{ step }}
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Accelerate Your Software Delivery</h2>
+      <p>Partner with us to implement DevOps best practices and streamline operations.</p>
+      <button routerLink="/contact" class="btn btn-primary">Get in Touch</button>
+    </section>
+  
+  </div>
+  

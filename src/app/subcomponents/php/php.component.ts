@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 @Component({
   selector: 'app-php',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './php.component.html',
-  styleUrl: './php.component.css'
+  styleUrls: ['./php.component.css']
 })
-export class PhpComponent {
+export class PhpComponent implements OnInit {
+  features = [
+    { icon: '💻', title: 'Dynamic Websites', desc: 'Build highly interactive and dynamic PHP websites tailored to your business.' },
+    { icon: '⚡', title: 'Fast Backend', desc: 'Efficient server-side scripting for quick response and scalable PHP applications.' },
+    { icon: '🛡️', title: 'Secure Code', desc: 'Follow best security practices to safeguard your applications from vulnerabilities.' },
+  ];
 
+  processSteps = ['Requirement Gathering', 'Architecture & Design', 'PHP Development', 'Testing & Deployment'];
+
+  ngOnInit(): void {
+    AOS.init({ duration: 800, once: true });
+  }
 }

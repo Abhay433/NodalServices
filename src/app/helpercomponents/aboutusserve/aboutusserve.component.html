@@ -1,1 +1,62 @@
-<p>aboutusserve works!</p>
+<div class="what-we-serve-page">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container text-center hero-content">
+        <h1 data-aos="fade-up">What We Serve</h1>
+        <p data-aos="fade-up" data-aos-delay="150">
+          Delivering innovative digital solutions to help your business grow, transform, and succeed.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Services Section -->
+    <section class="services" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-5">Our Core Services</h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let service of services" data-aos="zoom-in">
+            <div class="service-card">
+              <i [class]="service.icon + ' service-icon'"></i>
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Values Section -->
+    <section class="values text-center" data-aos="fade-up">
+      <div class="container">
+        <h2>Our Promise</h2>
+        <p>
+          We combine creativity, technology, and strategy to deliver digital excellence.
+          Our focus is always on providing measurable results and meaningful impact.
+        </p>
+        <div class="row value-items">
+          <div class="col-md-4" data-aos="fade-up">
+            <h4>Innovation</h4>
+            <p>We embrace new technologies and bold ideas to drive progress.</p>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <h4>Quality</h4>
+            <p>Every product we deliver meets the highest standards of reliability and design.</p>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <h4>Commitment</h4>
+            <p>We value long-term partnerships and client satisfaction above all else.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA Section -->
+    <section class="cta text-center" data-aos="zoom-in">
+      <h2>Let's Build Something Great Together</h2>
+      <p>Partner with us to transform your vision into reality.</p>
+      <button routerLink="/contact" class="btn btn-primary">Contact Us</button>
+    </section>
+  
+  </div>
+  

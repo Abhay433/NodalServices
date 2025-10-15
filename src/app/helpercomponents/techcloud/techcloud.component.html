@@ -1,1 +1,46 @@
-<p>techcloud works!</p>
+<section class="clouds-section text-center">
+    <div class="hero">
+      <i class="bi bi-cloud-fill hero-icon"></i>
+      <h1 class="mt-3">Cloud Solutions</h1>
+      <p class="lead">
+        Empowering your business with scalable, secure, and reliable cloud infrastructure.
+      </p>
+    </div>
+  
+    <div class="container mt-5">
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let service of cloudServices" data-aos="zoom-in">
+          <div class="card service-card h-100">
+            <div class="card-body text-center">
+              <i class="{{ service.icon }} service-icon mb-3"></i>
+              <h5 class="card-title">{{ service.title }}</h5>
+              <p class="card-text">{{ service.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="process" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Our Cloud Process</h2>
+        <p>Efficient cloud deployment for seamless business operations.</p>
+        <div class="steps">
+          <div class="step" *ngFor="let step of cloudProcessSteps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i*150">
+            {{ step }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="get-in-touch text-center mt-5" data-aos="zoom-in" data-aos-delay="150">
+      <h3>Ready to Bring Intelligence to Your Business?</h3>
+      <p>Let’s build AI-powered solutions tailored to your goals.</p>
+      <a routerLink="/contact" routerLinkActive="active" class="btn btn-primary mt-2">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  
+  
