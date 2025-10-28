@@ -63,9 +63,16 @@
   padding: 0.5rem 1rem;
 }
 
+/* .dropdown-item > span:hover {
+  background-color: #212529;
+} */
+
 .dropdown-item > span:hover {
-  background-color: #343a40;
+  background-color: #343a40; /* darker shade, subtle hover */
+  color: #fff;
+  border: none;
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
@@ -75,6 +82,19 @@
 @keyframes fadeInRight {
   from { opacity: 0; transform: translateX(-10px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+.dropdown-menu,
+.dropdown-submenu,
+.dropdown-submenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.dropdown-item:hover {
+  background-color: transparent;
 }
 
 
@@ -187,3 +207,8 @@
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+
+

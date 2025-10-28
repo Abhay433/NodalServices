@@ -64,6 +64,7 @@
             <!-- Technology -->
             <li class="nav-item dropdown" (mouseenter)="showDropdown('technology')"
             (mouseleave)="hideDropdown('technology')">
+            <!-- <span class="arrow" [class.rotate]="openMobileSubMenu === 'technology'">▼</span>≥ -->
             <a class="nav-link px-3 dropdown-toggle" href="#" (click)="$event.preventDefault()">Technology</a>
             <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'technology'">
               <li><a routerLink="/cloud" routerLinkActive="active" (click)="closeMobileMenu()">Clouds</a></li>
@@ -179,7 +180,7 @@
     </li>
 
 
-
+    <!-- Technology -->
     <li>
       <div class="mobile-parent" (click)="toggleSubMenu('technology')">
         Technology
