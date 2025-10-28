@@ -13,9 +13,9 @@ import 'aos/dist/aos.css';
 })
 export class AboutusLeadershipComponent implements OnInit {
   leaders = [
-    { name: 'John Doe', position: 'CEO', image: 'assets/leadership/john.png', bio: 'Visionary leader driving innovation and growth.' },
-    { name: 'Jane Smith', position: 'CTO', image: 'assets/leadership/jane.png', bio: 'Expert in technology strategy and architecture.' },
-    { name: 'Mike Johnson', position: 'COO', image: 'assets/leadership/mike.png', bio: 'Ensuring smooth operations and delivery excellence.' }
+    { name: 'Mohammad Asif', position: 'CEO', image: 'assets/leadership/john.png', bio: 'Visionary leader driving innovation and growth.' },
+    { name: 'Nihaludddin', position: 'CTO', image: 'assets/leadership/jane.png', bio: 'Expert in technology strategy and architecture.' },
+    { name: 'Zohaib Tahir', position: 'COO', image: 'assets/leadership/mike.png', bio: 'Ensuring smooth operations and delivery excellence.' }
   ];
 
   ngOnInit(): void {

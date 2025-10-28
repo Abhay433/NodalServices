@@ -29,10 +29,11 @@
             <li><a routerLink="/serve" routerLinkActive="active" (click)="closeMobileMenu()">What We Serve</a></li>
           </ul>
         </li>
+        
 
         <!-- Dropdowns same as before -->
         <li class="nav-item dropdown" (mouseenter)="showDropdown('services')" (mouseleave)="hideDropdown('services')">
-          <a class="nav-link px-3 dropdown-toggle" href="#">Services</a>
+          <a class="nav-link px-3 dropdown-toggle" href="#" (click)="$event.preventDefault()">Services</a>
           <ul class="dropdown-menu custom-dropdown" [class.show]="openDropdown === 'services'">
             <li><a class="dropdown-item" routerLink="/thirdparty" routerLinkActive="active" (click)="closeMobileMenu()">Third Party Impl</a></li>
             <li><a class="dropdown-item" routerLink="/maintanance" routerLinkActive="active" (click)="closeMobileMenu()">Maintenance</a></li>
@@ -106,10 +107,10 @@
     
 
         <!-- Testimonials -->
-        <li class="nav-item"><a class="nav-link px-3" routerLink="/testimonials">Testimonials</a></li>
+        <!-- <li class="nav-item"><a class="nav-link px-3" routerLink="/testimonials">Testimonials</a></li> -->
 
         <!-- Contact -->
-        <li class="nav-item"><a class="nav-link px-3" routerLink="/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/contact">Contact Us</a></li>
 
       </ul>
     </div>
