@@ -94,6 +94,7 @@
     background: #00f2fe;
     color: white;
     padding: 4rem 1rem;
+    border-radius: 25px;
   }
   .cta button {
     background: #4facfe;

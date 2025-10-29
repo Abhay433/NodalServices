@@ -58,6 +58,7 @@
   .cta {
     padding: 60px 20px;
     background: #f1f5f9;
+    border-radius: 25px;
   }
   
   .cta .btn {

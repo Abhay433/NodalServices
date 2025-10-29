@@ -94,6 +94,7 @@
     background: linear-gradient(to right, #2575fc, #6a11cb);
     color: white;
     padding: 4rem 1rem;
+    border-radius: 25px;
   }
   .cta button {
     background: white;
