@@ -4,6 +4,7 @@ import {  RouterOutlet } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BroucherComponent } from './components/broucher/broucher.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     RouterOutlet,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BroucherComponent
    ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']  // ✅ change styleUrl → styleUrls
