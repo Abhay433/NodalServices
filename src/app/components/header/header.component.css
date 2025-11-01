@@ -99,6 +99,23 @@
 
 
 
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #e6ebf3; /* your theme color */
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #ff4b2b; /* highlight 'X' */
+}
+
+
+
+
+
 /* Sidebar */
 .mobile-sidebar {
   position: fixed;
