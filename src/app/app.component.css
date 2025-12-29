@@ -1,3 +1,7 @@
 .main-content {
   margin-top: 80px; /* Same as navbar height */
 }
+.main-content {
+  margin-top: 0 !important;
+  padding-top: 66px; /* adjust slightly if needed: 60–72px */
+}
