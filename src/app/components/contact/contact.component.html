@@ -5,30 +5,124 @@
 </div>
 
 
-<form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
+<div
+  class="alert text-center text-white fw-semibold shadow-sm p-3 rounded-pill mx-auto mb-3"
+  *ngIf="contactForm.invalid && isSubmitted"
+  style="
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    max-width: 400px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+  ">
+  ⚠️ Please fill all fields correctly before submitting.
+</div>
+
+
+
+
+
+
+<form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm,$event)" novalidate>
   <div class="mb-3">
     <label class="form-label fw-semibold">Your Name</label>
-    <input type="text" class="form-control rounded-pill" placeholder="Your Name" [(ngModel)]="name" name="name" required>
+    <input
+    type="text"
+    class="form-control rounded-pill"
+    placeholder="Your Name"
+    [(ngModel)]="name"
+    name="name"
+    required
+    #nameCtrl="ngModel"
+    [class.is-invalid]="nameCtrl.invalid && isSubmitted"
+  />
+  
+  <div class="invalid-feedback">
+    Name is required.
   </div>
+    </div>
+
+
 
   <div class="mb-3">
     <label class="form-label fw-semibold">Email</label>
-    <input type="email" class="form-control rounded-pill" placeholder="Your Email" [(ngModel)]="email" name="email" required>
+    <input
+    type="email"
+    class="form-control rounded-pill"
+    placeholder="Your Email"
+    [(ngModel)]="email"
+    name="email"
+    required
+    email
+    #emailCtrl="ngModel"
+    [class.is-invalid]="emailCtrl.invalid && isSubmitted"
+  />
+  
+  <div class="invalid-feedback">
+    Please enter valid email address.
   </div>
+    </div>
+
+
 
   <div class="mb-3">
     <label class="form-label fw-semibold">Phone Number</label>
-    <input type="tel" class="form-control rounded-pill" placeholder="Your Phone Number" [(ngModel)]="phone" name="phone" required>
+    <input
+    type="tel"
+    class="form-control rounded-pill"
+    placeholder="Your Phone Number"
+    [(ngModel)]="phone"
+    name="phone"
+    required
+    #phoneCtrl="ngModel"
+    [class.is-invalid]="phoneCtrl.invalid && isSubmitted"
+  />
+  
+  <div class="invalid-feedback">
+    Phone number is required.
   </div>
+    </div>
+
+
 
   <div class="mb-3">
     <label class="form-label fw-semibold">Your Query</label>
-    <textarea class="form-control rounded-4" rows="5" placeholder="Your Message" [(ngModel)]="message" name="message" required></textarea>
+    <textarea
+    class="form-control rounded-4"
+    rows="5"
+    placeholder="Your Message"
+    [(ngModel)]="message"
+    name="message"
+    required
+    #messageCtrl="ngModel"
+    [class.is-invalid]="messageCtrl.invalid && isSubmitted">
+  </textarea>
+  
+  <div class="invalid-feedback">
+    Message cannot be empty.
   </div>
+    </div>
+
+
 
   <div class="text-center">
-    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Send Message</button>
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg rounded-pill px-5"
+      [disabled]="isLoading">
+  
+      <ng-container *ngIf="!isLoading">
+        Send Message
+      </ng-container>
+  
+      <ng-container *ngIf="isLoading">
+        <span class="spinner-border spinner-border-sm me-2"></span>
+        Sending...
+      </ng-container>
+  
+    </button>
   </div>
+  
 </form>
 <!-- Toast Container -->
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 1100">

@@ -22,29 +22,51 @@ export class ContactComponent {
   private templateID: string = 'template_8ugwpor';
   private publicKey: string = 'o2XFhxmkye1AqVuqa';
 
-  sendEmail(form: NgForm) {
+  isLoading: boolean = false;
+
+  isSubmitted: boolean = false;
+
+
+  async sendEmail(form: NgForm, event: Event) {
+
+    event.preventDefault();
+
+    this.isSubmitted = true;
+
     if (form.invalid) {
-      alert('Please fill all fields correctly.');
       return;
     }
-
-    const templateParams = {
-      name: this.name,
-      email: this.email,       // user email shown in message body
-      phone: this.phone,
-      message: this.message
-    };
-
-    emailjs.send(this.serviceID, this.templateID, templateParams, this.publicKey)
-      .then(() => {
-        this.showToast('Message sent successfully!', 'bg-success');
-        form.resetForm();
-      })
-      .catch((error) => {
-        console.error('Email send error:', error);
-        this.showToast('Oops! Something went wrong, please try again.', 'bg-danger');
-      });
+  
+    this.isLoading = true;
+  
+    try {
+      const templateParams = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        message: this.message
+      };
+  
+      await emailjs.send(
+        this.serviceID,
+        this.templateID,
+        templateParams,
+        this.publicKey
+      );
+  
+      this.showToast('Message sent successfully!', 'bg-success');
+      form.resetForm();
+      this.isSubmitted = false;
+  
+    } catch (error) {
+      console.error(error);
+      this.showToast('Something went wrong, please try again.', 'bg-danger');
+  
+    } finally {
+      this.isLoading = false; // ✅ ALWAYS runs
+    }
   }
+  
 
 
   showToast(message: string, bgClass: string) {
