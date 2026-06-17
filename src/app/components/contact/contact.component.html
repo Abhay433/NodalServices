@@ -1,55 +1,189 @@
-<div class="container mb-4">
-  <!-- <h2 class="mx-auto" style="width: 200px;">
-    Contact Us
-  </h2> -->
-</div>
-
-
-<form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
-  <div class="mb-3">
-    <label class="form-label fw-semibold">Your Name</label>
-    <input type="text" class="form-control rounded-pill" placeholder="Your Name" [(ngModel)]="name" name="name" required>
+<!-- ===== HERO ===== -->
+<section class="contact-hero">
+  <div class="contact-container">
+    <div class="hero-badge">
+      <i class="fas fa-envelope"></i> Get in touch
+    </div>
+    <h1 class="hero-title">
+      Let's build something<br>
+      <span class="hero-accent">great together.</span>
+    </h1>
+    <p class="hero-sub">
+      Have a project in mind, want a website, or just want to say hello?<br>
+      We'd love to hear from you.
+    </p>
+    <div class="hero-chips">
+      <span class="chip"><i class="fas fa-laptop-code"></i> Web development</span>
+      <span class="chip"><i class="fas fa-shopping-cart"></i> E-commerce</span>
+      <span class="chip"><i class="fas fa-chart-bar"></i> Digital marketing</span>
+      <span class="chip"><i class="fas fa-paint-brush"></i> UI/UX design</span>
+    </div>
   </div>
+</section>
 
-  <div class="mb-3">
-    <label class="form-label fw-semibold">Email</label>
-    <input type="email" class="form-control rounded-pill" placeholder="Your Email" [(ngModel)]="email" name="email" required>
-  </div>
+<!-- ===== MAIN CARD ===== -->
+<div class="contact-container">
+  <div class="main-card fade-up-delay-1">
 
-  <div class="mb-3">
-    <label class="form-label fw-semibold">Phone Number</label>
-    <input type="tel" class="form-control rounded-pill" placeholder="Your Phone Number" [(ngModel)]="phone" name="phone" required>
-  </div>
+    <div class="two-col">
 
-  <div class="mb-3">
-    <label class="form-label fw-semibold">Your Query</label>
-    <textarea class="form-control rounded-4" rows="5" placeholder="Your Message" [(ngModel)]="message" name="message" required></textarea>
-  </div>
+      <!-- LEFT: Form -->
+      <div class="form-col">
+        <div class="col-tag">Send a message</div>
+        <h2 class="col-title">We'll get back to you fast</h2>
+        <p class="col-sub">Fill in your details and we'll respond within 24 hours.</p>
 
-  <div class="text-center">
-    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Send Message</button>
-  </div>
-</form>
-<!-- Toast Container -->
-<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100">
-  <div
-    id="emailToast"
-    class="toast align-items-center text-white bg-primary border-0"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-    <div class="d-flex">
-      <div class="toast-body" id="toastMessage">
-        <!-- Message will be injected here -->
+        <!-- Success / Error pills -->
+        <div class="status-pill success-pill" *ngIf="formSuccess">
+          <i class="fas fa-check-circle"></i> Message sent! We'll be in touch soon.
+        </div>
+        <div class="status-pill error-pill" *ngIf="formError">
+          <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+        </div>
+        <!-- Validation warning -->
+        <div class="status-pill warn-pill"
+             *ngIf="contactForm.invalid && (contactForm.submitted || isSubmitted)">
+          <i class="fas fa-exclamation-triangle"></i> Please fill all required fields correctly.
+        </div>
+
+        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm, $event)" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label">Your name *</label>
+              <input type="text" class="field-input"
+                     placeholder="e.g. Rahul Sharma"
+                     [(ngModel)]="name" name="name"
+                     #nameCtrl="ngModel" required
+                     [class.is-invalid]="(contactForm.submitted || isSubmitted) && nameCtrl.invalid">
+              <div class="field-err" *ngIf="(contactForm.submitted || isSubmitted) && nameCtrl.errors?.['required']">
+                Name is required.
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Email address *</label>
+              <input type="email" class="field-input"
+                     placeholder="you@company.com"
+                     [(ngModel)]="email" name="email"
+                     #emailCtrl="ngModel" required email
+                     [class.is-invalid]="(contactForm.submitted || isSubmitted) && emailCtrl.invalid">
+              <div class="field-err" *ngIf="(contactForm.submitted || isSubmitted) && emailCtrl.errors?.['required']">Email is required.</div>
+              <div class="field-err" *ngIf="(contactForm.submitted || isSubmitted) && emailCtrl.errors?.['email']">Enter a valid email.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Phone number</label>
+            <input type="tel" class="field-input"
+                   placeholder="+91 98765 43210"
+                   [(ngModel)]="phone" name="phone">
+          </div>
+
+          <div class="field">
+            <label class="field-label">Your message *</label>
+            <textarea class="field-input field-textarea" rows="5"
+                      placeholder="Tell us about your project, idea, or question — what are you looking to build?"
+                      [(ngModel)]="message" name="message"
+                      #messageCtrl="ngModel" required
+                      [class.is-invalid]="(contactForm.submitted || isSubmitted) && messageCtrl.invalid"></textarea>
+            <div class="field-err" *ngIf="(contactForm.submitted || isSubmitted) && messageCtrl.errors?.['required']">
+              Message cannot be empty.
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" [disabled]="isLoading">
+            <ng-container *ngIf="!isLoading">
+              <i class="fas fa-paper-plane"></i> Send message
+            </ng-container>
+            <ng-container *ngIf="isLoading">
+              <span class="btn-spinner"></span> Sending…
+            </ng-container>
+          </button>
+        </form>
       </div>
-      <button
-        type="button"
-        class="btn-close btn-close-white me-2 m-auto"
-        data-bs-dismiss="toast"
-        aria-label="Close"
-      ></button>
+
+      <!-- RIGHT: Info -->
+      <div class="info-col">
+        <div class="col-tag">Contact details</div>
+        <h2 class="col-title">NodalX<span class="brand-x">P</span>oint</h2>
+        <p class="col-sub">Reach us through any of the channels below — we're always happy to connect.</p>
+
+        <div class="contact-list">
+          <div class="contact-row">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <a href="mailto:lesani@nodalxpoint.com" class="contact-value">lesani&#64;nodalxpoint.com</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <a href="tel:+919911775818" class="contact-value">+91 991-1775-818</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value-plain">F4-Shaheen Bagh, New Delhi 110025</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="col-tag" style="margin-bottom: 0.75rem;">Follow us</div>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/company/nodalxpoint/" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a href="https://www.instagram.com/nodalxpoint/" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="#" class="social-btn">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="response-box">
+          <div class="response-title"><i class="fas fa-clock"></i> Response time</div>
+          <p class="response-text">
+            We typically respond within <strong>2–4 hours</strong> on business days.
+            For urgent queries, WhatsApp is fastest.
+          </p>
+          <a href="https://wa.me/919911775818" target="_blank" class="wa-link">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== CTA STRIP ===== -->
+  <div class="cta-strip fade-up-delay-2">
+    <div class="cta-text">
+      <h3 class="cta-title">Need a website or digital product?</h3>
+      <p class="cta-sub">Book a free 30-minute consultation — we'll assess your needs and send you a cost estimate.</p>
+    </div>
+    <div class="cta-actions">
+      <a routerLink="/marketing" class="btn-outline-cta">Learn more</a>
+      <a href="https://wa.me/919911775818" target="_blank" class="btn-solid-cta">
+        <i class="fab fa-whatsapp"></i> Book a free call
+      </a>
     </div>
   </div>
 </div>
 
+<!-- Toast -->
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div id="emailToast" class="toast align-items-center border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body fw-medium" id="toastMessage"></div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>

@@ -2,61 +2,78 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Toast } from 'bootstrap';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  name: string = '';
-  email: string = '';
-  phone: string = '';
-  message: string = '';
+  name    = '';
+  email   = '';
+  phone   = '';
+  message = '';
 
-  // Your EmailJS configuration
-  private serviceID: string = 'service_ish6aaz';   // SMTP service ID
-  private templateID: string = 'template_8ugwpor';
-  private publicKey: string = 'o2XFhxmkye1AqVuqa';
+  private serviceID  = 'service_ish6aaz';
+  private templateID = 'template_8ugwpor';
+  private publicKey  = 'o2XFhxmkye1AqVuqa';
 
-  sendEmail(form: NgForm) {
-    if (form.invalid) {
-      alert('Please fill all fields correctly.');
-      return;
+  isLoading   = false;
+  isSubmitted = false;
+  formSuccess = false;
+  formError   = false;
+
+  async sendEmail(form: NgForm, event: Event) {
+    event.preventDefault();
+    this.isSubmitted = true;
+    this.formSuccess = false;
+    this.formError   = false;
+
+    if (form.invalid) return;
+
+    this.isLoading = true;
+
+    try {
+      await emailjs.send(
+        this.serviceID,
+        this.templateID,
+        {
+          name:    this.name,
+          email:   this.email,
+          phone:   this.phone,
+          message: this.message
+        },
+        this.publicKey
+      );
+
+      this.formSuccess = true;
+      form.resetForm();
+      this.isSubmitted = false;
+
+      // Auto-hide success pill after 4s
+      setTimeout(() => (this.formSuccess = false), 4000);
+
+    } catch (error) {
+      console.error(error);
+      this.formError = true;
+      setTimeout(() => (this.formError = false), 5000);
+
+    } finally {
+      this.isLoading = false;
     }
-
-    const templateParams = {
-      name: this.name,
-      email: this.email,       // user email shown in message body
-      phone: this.phone,
-      message: this.message
-    };
-
-    emailjs.send(this.serviceID, this.templateID, templateParams, this.publicKey)
-      .then(() => {
-        this.showToast('Message sent successfully!', 'bg-success');
-        form.resetForm();
-      })
-      .catch((error) => {
-        console.error('Email send error:', error);
-        this.showToast('Oops! Something went wrong, please try again.', 'bg-danger');
-      });
   }
 
-
+  // kept for backward compat — not used in new UI
   showToast(message: string, bgClass: string) {
-    const toastEl = document.getElementById('emailToast')!;
-    const toastMessageEl = document.getElementById('toastMessage')!;
-    toastMessageEl.textContent = message;
-
-    // Remove previous bg-* classes
+    const toastEl  = document.getElementById('emailToast')!;
+    const msgEl    = document.getElementById('toastMessage')!;
+    msgEl.textContent = message;
     toastEl.className = 'toast align-items-center text-white border-0';
     toastEl.classList.add(bgClass);
-
-    const toast = new Toast(toastEl, { delay: 3000 });
-    toast.show();
+    new Toast(toastEl, { delay: 3000 }).show();
   }
 }

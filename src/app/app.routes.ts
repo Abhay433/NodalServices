@@ -26,6 +26,10 @@ export const routes: Routes = [
   { path: 'maintanance', loadComponent: () => import('./helpercomponents/smaintanance/smaintanance.component').then(c => c.SmaintananceComponent) },
   { path: 'thirdparty', loadComponent: () => import('./helpercomponents/sthirdparty/sthirdparty.component').then(c => c.SthirdpartyComponent) },
 
+  { path: 'digital', loadComponent: () => import('./subcomponents/digitalmarketing/digitalmarketing.component').then(c => c.DigitalmarketingComponent) },
+
+  { path: 'marketing', loadComponent: () => import('./subcomponents/marketing/marketing.component').then(c => c.MarketingComponent) },
+
 
 
   { path: 'leadership', loadComponent: () => import('./helpercomponents/aboutusleadership/aboutusleadership.component').then(c => c.AboutusLeadershipComponent) },
